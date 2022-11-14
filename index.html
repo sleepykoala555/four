@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/css.css">
+
+  <title> Development - Heytea </title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="nav">
+      <h3> Development - Heytea </h3><div class="menu"></div>
+    </div>
+
+  </div>
+  <div class="main">
+    <div class="left">
+
+      <div class="tips">
+        Navigation bar
+      </div>
+      <ul>
+        <li><a href="#zero"><span>1.</span> Introduction  </a></li>
+        <li><a href="#one"><span>2.</span> Goal and Value of the Application</a></li>
+        <li><a href="#tow"><span>3.</span> Usability Principles and Prototyping </a> </li>
+        <li><a href="#four"><span>4.</span> Organization of Components</a></li>
+        <li><a href="#five"><span>5.</span> Users Interaction and Instructions</a></li>
+      </ul>
+    </div>
+    <div class="right">
+
+      <div class="stepzero" id="zero">
+        <h1><span>1. Introduction</span></h1>
+        <p class="text"> <br>In this project, I’ll create a web interactive interface with React 
+          for a bubble tea cafe. On the webpage, you can view and order various Heytea drinks. 
+          This interface includes the following:
+        </p>
+        <div class="xuelie">
+          <ol>
+          <li> A list of 15 items for drinks displayed as components, including a picture  and various info </li>
+          <li> Filtering functions that allow users to filter drinks by type (fruit tea, milk tea, juice, coffee) and temperature (cold, cold and hot)</li>
+          <li> Sorting functions that allow users to sort drinks by type, price(low-high, high-low), calories, and popularity </li>
+          <li> An aggregator that allows users to add and remove items from the Cart, and calculate the total price of items in the Cart</li>
+            </ol>
+        </div>
+
+        <p class="text2">
+          <b> Click to start order: </b> <a
+          href="https://sleepykoala555.github.io/heytea-react/"> Heytea</a></p>
+
+          
+
+      </div>
+      <div class="stepone " id="one">
+        <h1 class="bg0"><span>2. Goal and Value of the Application </span></h1>
+      
+        <div>
+          <br>
+        </p>
+        <p class="text2"><b>Heytea:</b> Heytea is a popular Chinese tea drink chain featuring cheezo fruit tea. The brand 
+          is famous for its modern interior design, photogenic packaging, and innovative drinks and is well-known for its popularity
+           on social media. </p>
+        <p class="text2"><b>Goal:</b> This web interface allows users to view and navigate Heytea’s complicated menus with filtering 
+          and sorting functions. Also, it allows users to order drinks by adding drinks to the Cart and removing items while seeing 
+          the total price before check-out. 
+        </p>
+        <p class="text2"><b>Value: :</b> As bubble tea and tea shops become increasingly popular, there is also an increasing demand for ordering drinks online for pickup or delivery.
+           This web interface is thus valuable in exploring various functionalities and optimizing user experiences of ordering drinks online. 
+          </p>
+          </div>
+          <div class="imgs3">
+            <br>
+            <img src="./images/img40.png" alt="">
+          </div>
+
+      </div>
+
+      <div class="steptwo" id="tow">
+        <h1 class="bg2"><span>3. Usability Principles and Prototyping </span> </h1>
+        <br>
+        <div>
+        <p class="text2"><b>Learnability and memorability: </b> The app is very learnable and intuitive to use. All the interactive components are buttons, which tell the users 
+          that they are clickable. Also, the buttons are clearly labeled. 
+          Users can follow from left to right visually to add filter/sort criteria, view items, and view the cart and total price. The visual path and navigation are sequential,
+           which corresponds to the steps users look at menus and order drinks. 
+           on social media. </p>
+        <p class="text2"><b>Efficiency: </b> The app is efficient as it keeps the nav bar, the drink items, and the cart on a single page. 
+          The navigation bar and the cart are fixed on the side and the top, which allow users to scroll down to view the menu and add items
+           to the cart while being able to use the filter and sort functions and view the cart anytime. 
+        </p>
+        <p class="text2"><b>
+          Prototyping and design decision: </b>I re-use the design from a previous prototype I created for ordering a bakery.  It was proven more effective in the previous A/B testing, 
+          so I kept the layout and design. The prototype is given below. I merely changed the navigation bar on the left to put the filtering and sorting buttons.  I also included more information 
+          on the items while making  “ADD TO CART” and “REMOVE” buttons to add and remove items in the Cart. 
+          </p>
+          </div>
+
+          <div class="imgs3">
+            <br>
+            <img src="./images/img41.png" alt="">
+            <h5 class="title"> prototype</h5>
+          </div>
+
+          <div class="imgs3">
+            <br>
+            <img src="./images/img42.png" alt="">
+            <h5 class="title"> actual page</h5>
+          </div>
+
+
+
+
+      <div class="stepfour" id="four"></div>
+        <h1 class="bg1"> <span>4. Organization of Components </span> </h1>
+
+        <div>
+          <p class="text2"><b>App-js:  </b> contains the product list (read from a complete list of product information in a JSON file)  and passes it to the FilteredList component. </p>
+          <p class="text2"><b>Filteredlists-js: </b> contains filtering/sorting/aggregator methods. It contains the following props and states property: 
+          </p>
+
+          <div class="xuelie">
+            <ol>
+              <li><strong>Props. list:  </strong> the product list passed from App </li>
+              <li> <strong>[state, setState]:  </strong>a use state that tracks the type of drink selected for filtering drinks by types( cheezo fruit tea, 
+                bobo family, fruity boom, and coffee savory). The default is “All,” which includes all types of drinks </li>
+              <li> <strong>[res, setRes]:</strong>a use state that tracks the temperature options of the drink selected for filtering drinks by types (cold, cold and hot). The default is “All,” which includes all temperature options</li>
+              <li> <strong>[sort, setSort]:  </strong>a use state that tracks the criteria for sorting (category, price, calories, and popularity). The default is “category,” which sorts the items by their types </li>
+              <li><strong> [cart, setCart]: </strong> a use state that tracks the items in the cart as an array.  The default is empty, and thus an empty array</li>
+              <li><strong> [totalprice, setTotalPrice]:  </strong> a use that tracks the total price of items in the cart.  The default is “0”</li>
+              <li><strong> [checked, setChecked]:  </strong> a use state that tracks if a button is selected to allow the users to select and de-select</li>
+            </ol>
+          </div>
+
+          <p class="text2"><b>Displaylist-js:  </b> maps each product from App.js to an HTML Component for render. It contains the following props properties:</p>
+
+          <div class="xuelie">
+            <ol>
+              <li><strong>Props.list:  </strong> a list of sorted and filtered items from Filteredlist.js  </li>
+              <li> <strong>Props.addToCart:  </strong>function passed from Filteredlist.js  that updates the cart with items and total price when an item is added to the cart  </li>
+              <li> <strong>Props.removeCart:</strong>function passed from Filteredlist.js  that  updates the cart with items and total price when an item is removed from  the cart </li>
+            </ol>
+          </div>
+
+          <p class="text2"><b>Aggregator-js:   </b>maps each product in the cart from App.js to an HTML Component for rendering, including item names and prices and their total price. 
+             There’s also a button for resetting the cart. It contains the following props properties: </p>
+
+          <div class="xuelie">
+            <ol>
+              <li><strong>Props.cartList:  </strong> a list of items in the cart passed from Filteredlist.js   </li>
+              <li> <strong>Props.totalprice:  </strong> a number passed from Filteredlist.js that tells the total price of items in the cart </li>
+              <li> <strong>Props.clearCart: </strong> function passed from Filteredlist.js </li>
+            </ol>
+          </div>
+        </div>
+        
+      <div class="stepfive" id="five">
+        <h1><span> 5. Users Interaction and Instructions</span> </h1>
+
+        <p class="text2">
+          <br>
+          <b> Click to start order: </b> <a
+          href="https://sleepykoala555.github.io/heytea-react/"> Heytea</a></p>
+
+        <div>
+          <p class="text2"><b>To filter and sort items:   </b> click the buttons in the navigation bar on the left to select and click again to de-select. 
+            Press “reset/all” for reset </p>
+          <p class="text2"><b>To add and remove items in the cart:  </b> click “ADD TO CART” to add the item to the cart and “REMOVE” to remove the item </p>
+          <p class="text2"><b>Filteredlists-js: </b> refer to the cart on the right side of the webpage, and the aggregator will automatically calculate the total price
+          </p>
+
+        </div>
+      
+      
+      </div>
+    
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/js.js"></script>
+
+</body>
+</html>
